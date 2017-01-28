@@ -1,12 +1,12 @@
 #ifndef PRINTER_HPP
 #define PRINTER_HPP
 
-#include "LabyrinthFactory.hpp"
+#include "MazeGenerator.hpp"
 
 namespace display {
 
-   typedef std::vector<std::string> LabyrinthDisplay;
-   LabyrinthDisplay print(const labyrinth::Labyrinth& lab);
+   typedef std::vector<std::string> MazeDisplay;
+   MazeDisplay print(const maze::Maze& lab);
 
 }
 

@@ -1,15 +1,15 @@
-#include "LabyrinthNode.hpp"
+#include "MazeNode.hpp"
 #include <algorithm>
 
-namespace labyrinth {
+namespace maze {
 
-LabyrinthNode::LabyrinthNode(int x, int y):
+MazeNode::MazeNode(int x, int y):
     x(x),
     y(y),
     type(NodeType::Standard)
 {}
 
-LabyrinthNode::LabyrinthNode():
+MazeNode::MazeNode():
     x(0),
     y(0),
     type(NodeType::Standard)

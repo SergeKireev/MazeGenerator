@@ -8,40 +8,40 @@ static const char FULL_BLOCK = '#';
 
 namespace {
 
-LabyrinthDisplay* printEdge(LabyrinthDisplay* labyrinthDisplay, const labyrinth::LabyrinthEdge& edge)
+MazeDisplay* printEdge(MazeDisplay* mazeDisplay, const maze::MazeEdge& edge)
 {
-    const labyrinth::LabyrinthNode& source = *edge.getSource();
-    const labyrinth::LabyrinthNode& destination = *edge.getDestination();
+    const maze::MazeNode& source = *edge.getSource();
+    const maze::MazeNode& destination = *edge.getDestination();
     int x = (source.x + destination.x)/2;
     int y = (source.y + destination.y)/2;
 
     if (edge.isOpen())
-        (*labyrinthDisplay)[x][y] = EMPTY_BLOCK;
-    return labyrinthDisplay;
+        (*mazeDisplay)[x][y] = EMPTY_BLOCK;
+    return mazeDisplay;
 }
 
-LabyrinthDisplay* printNode(LabyrinthDisplay* labyrinthDisplay, const labyrinth::LabyrinthNode& node)
+MazeDisplay* printNode(MazeDisplay* mazeDisplay, const maze::MazeNode& node)
 {
-    (*labyrinthDisplay)[node.x][node.y] = EMPTY_BLOCK;
-    std::accumulate(std::begin(node.neighborEdges), std::end(node.neighborEdges), labyrinthDisplay, &printEdge);
-    return labyrinthDisplay;
+    (*mazeDisplay)[node.x][node.y] = EMPTY_BLOCK;
+    std::accumulate(std::begin(node.neighborEdges), std::end(node.neighborEdges), mazeDisplay, &printEdge);
+    return mazeDisplay;
 }
 
 
-LabyrinthDisplay* printRowNodes(LabyrinthDisplay* labyrinthDisplay, const std::vector<labyrinth::LabyrinthNode>& rowNodes)
+MazeDisplay* printRowNodes(MazeDisplay* mazeDisplay, const std::vector<maze::MazeNode>& rowNodes)
 {
-    std::accumulate(rowNodes.begin(), rowNodes.end(), labyrinthDisplay, &printNode);
-    return labyrinthDisplay;
+    std::accumulate(rowNodes.begin(), rowNodes.end(), mazeDisplay, &printNode);
+    return mazeDisplay;
 }
 
 } //anonymous
 
-LabyrinthDisplay print(const labyrinth::Labyrinth& lab)
+MazeDisplay print(const maze::Maze& lab)
 {
     const size_t SIZE = lab.size();
-    LabyrinthDisplay labyrinthDisplay(2*SIZE+1, std::string(2*SIZE+1, FULL_BLOCK));
-    std::accumulate(lab.begin(), lab.end(), &labyrinthDisplay, &printRowNodes);
-    return labyrinthDisplay;
+    MazeDisplay mazeDisplay(2*SIZE+1, std::string(2*SIZE+1, FULL_BLOCK));
+    std::accumulate(lab.begin(), lab.end(), &mazeDisplay, &printRowNodes);
+    return mazeDisplay;
 }
 
 }

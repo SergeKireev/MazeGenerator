@@ -3,9 +3,9 @@
 
 #include <memory>
 #include <vector>
-#include "LabyrinthEdge.hpp"
+#include "MazeEdge.hpp"
 
-namespace labyrinth {
+namespace maze {
 
 enum class NodeType {
     Standard,
@@ -13,12 +13,12 @@ enum class NodeType {
     Final
 };
 
-struct LabyrinthNode {
-    LabyrinthNode(int x, int y);
-    LabyrinthNode();
+struct MazeNode {
+    MazeNode(int x, int y);
+    MazeNode();
     int x;
     int y;
-    std::vector<LabyrinthEdge> neighborEdges;
+    std::vector<MazeEdge> neighborEdges;
     NodeType type;
 };
 

@@ -6,7 +6,7 @@ INCLUDE_DIRECTORIES(${CMAKE_SOURCE_DIR}/thirdparty/googletest/googlemock/include
 
 MESSAGE( STATUS "GTEST_SOURCE_DIR:         " ${gtest_SOURCE_DIR} )
 
-add_executable(Labyrinth-test test.cpp)
-target_link_libraries(Labyrinth-test labyrinth_maker gtest gtest_main)
+add_executable(Maze-test test.cpp)
+target_link_libraries(Maze-test maze_maker gtest gtest_main)
 enable_testing()
-add_test(NAME labyrinth_tests COMMAND Labyrinth-test)
+add_test(NAME maze_tests COMMAND Maze-test)

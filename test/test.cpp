@@ -1,34 +1,34 @@
 #include "gtest/gtest.h"
-#include "src/LabyrinthFactory.hpp"
+#include "src/MazeGenerator.hpp"
 #include "src/Printer.hpp"
 
-TEST(LabyrinthFactory, BasicDisplay)
+TEST(MazeFactory, BasicDisplay)
 {
     const int SIZE = 2;
     const char FULL_BLOCK = '#';
 
-    labyrinth::Labyrinth labyrinth = labyrinth::LabyrinthFactory::create(SIZE, SIZE);
-    display::LabyrinthDisplay labyrinthDisplay = display::print(labyrinth);
+    maze::Maze maze = maze::MazeGenerator::create(SIZE, SIZE);
+    display::MazeDisplay mazeDisplay = display::print(maze);
 
     std::vector<std::string>  expected = { "#####", "# # #", "#####", "# # #", "#####" };
-    EXPECT_EQ(expected, labyrinthDisplay);
+    EXPECT_EQ(expected, mazeDisplay);
 }
 
-TEST(LabyrinthFactory, TotalPruning)
+TEST(MazeFactory, TotalPruning)
 {
     const int SIZE = 20;
     const char FULL_BLOCK = '#';
 
     std::random_device rd;
-    labyrinth::Labyrinth labyrinth = labyrinth::LabyrinthFactory::create(SIZE, SIZE);
+    maze::Maze maze = maze::MazeGenerator::create(SIZE, SIZE);
 
-    display::LabyrinthDisplay labyrinthDisplay = display::print(labyrinth);
+    display::MazeDisplay mazeDisplay = display::print(maze);
 
-    std::for_each(labyrinthDisplay.begin(), labyrinthDisplay.end(), [](const std::string& row) {
+    std::for_each(mazeDisplay.begin(), mazeDisplay.end(), [](const std::string& row) {
         std::cout << row << std::endl;
     });
 
     std::vector<std::string>  expected = { "#####", "#   #", "# # #", "#   #", "#####" };
-    EXPECT_EQ(expected, labyrinthDisplay);
+    EXPECT_EQ(expected, mazeDisplay);
 }
 
