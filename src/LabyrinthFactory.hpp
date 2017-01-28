@@ -4,7 +4,6 @@
 #include <vector>
 #include <string>
 #include "LabyrinthNode.hpp"
-#include "Pruner.hpp"
 
 namespace labyrinth {
 
@@ -12,7 +11,7 @@ typedef std::vector<std::vector<LabyrinthNode>> Labyrinth;
 
 class LabyrinthFactory {
 public:
-    static Labyrinth create(int W, int H);
+    static Labyrinth create(const int W, const int H);
 };
 
 }
