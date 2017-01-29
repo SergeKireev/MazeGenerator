@@ -7,7 +7,7 @@
 
 namespace maze {
 
-typedef std::vector<std::vector<MazeNode>> Maze;
+typedef std::vector<std::vector<MazeNode> > Maze;
 
 class MazeGenerator {
 public:

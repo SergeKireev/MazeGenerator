@@ -35,11 +35,11 @@ void initNodes(Maze& lab)
             lab[i][j] = MazeNode(2*i+1, 2*j+1);
 }
 
-void walkFromNode(MazeNode& labNode, std::vector<std::vector<bool>>& visited);
+void walkFromNode(MazeNode& labNode, std::vector<std::vector<bool> >& visited);
 
 struct WalkOnEdge {
 
-    WalkOnEdge(std::vector<std::vector<bool>>& visited):
+    WalkOnEdge(std::vector<std::vector<bool> >& visited):
         visited(visited)
     {}
 
@@ -52,10 +52,10 @@ struct WalkOnEdge {
         }
     }
 
-    std::vector<std::vector<bool>>& visited;
+    std::vector<std::vector<bool> >& visited;
 };
 
-void walkFromNode(MazeNode& labNode, std::vector<std::vector<bool>>& visited)
+void walkFromNode(MazeNode& labNode, std::vector<std::vector<bool> >& visited)
 {
     visited[labNode.x][labNode.y] = true;
     std::random_shuffle(labNode.neighborEdges.begin(), labNode.neighborEdges.end());
@@ -65,7 +65,7 @@ void walkFromNode(MazeNode& labNode, std::vector<std::vector<bool>>& visited)
 template <int W, int H>
 void openEdges(Maze& lab)
 {
-    std::vector<std::vector<bool>> visited(2*W+1, std::vector<bool>(2*H+1, false));
+    std::vector<std::vector<bool> > visited(2*W+1, std::vector<bool>(2*H+1, false));
     walkFromNode(lab[0][0], visited);
 }
 
