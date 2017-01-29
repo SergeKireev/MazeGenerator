@@ -13,4 +13,4 @@ else()
 endif()
 
 MESSAGE( STATUS "Flags : ${CMAKE_CXX_FLAGS}")
-add_library(maze_maker ${SRC_LIB})
+add_library(maze_maker STATIC ${SRC_LIB})
