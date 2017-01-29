@@ -5,4 +5,5 @@ set(SRC_LIB
     MazeEdge.cpp
     Printer.cpp)
 
+MESSAGE( STATUS "Flags : ${CMAKE_CXX_FLAGS}")
 add_library(maze_maker ${SRC_LIB})
