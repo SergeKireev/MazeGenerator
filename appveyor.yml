@@ -30,5 +30,4 @@ build:
 before_build:
   - echo Running cmake...
   - cd c:\projects\maze_maker
-  - cmake -G "Visual Studio 14 2015 Win64" -DCMAKE_INSTALL_PREFIX=%P%
-
+  - cmake -G "Visual Studio 14 2015 Win64" -DCMAKE_INSTALL_PREFIX=%P% -DBUILD_SHARED_LIBS=1
