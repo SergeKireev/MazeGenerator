@@ -3,7 +3,7 @@
 
 namespace maze {
 
-class MazeNode;
+struct MazeNode;
 
 }
 
