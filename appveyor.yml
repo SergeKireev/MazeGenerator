@@ -13,7 +13,6 @@ os: Visual Studio 2015
 # scripts that are called at very beginning, before repo cloning
 init:
   - git config --global core.autocrlf input
-  - git submodule update --init --recursive
 
 # clone directory
 clone_folder: c:\projects\maze_maker
@@ -22,7 +21,7 @@ platform: x64
 configuration: Release
 
 install:
-  # by default, all script lines are interpreted as batch
+  - git submodule update --init --recursive
 
 build:
   project: INSTALL.vcxproj      # path to Visual Studio solution or project
