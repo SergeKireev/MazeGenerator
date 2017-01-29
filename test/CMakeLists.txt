@@ -1,8 +1,8 @@
 cmake_minimum_required (VERSION 2.6)
 
 INCLUDE_DIRECTORIES(${CMAKE_SOURCE_DIR})
-INCLUDE_DIRECTORIES(${CMAKE_SOURCE_DIR}/thirdparty/googletest/googletest/include)
-INCLUDE_DIRECTORIES(${CMAKE_SOURCE_DIR}/thirdparty/googletest/googlemock/include)
+INCLUDE_DIRECTORIES(${CMAKE_SOURCE_DIR}/thirdparty/gtest/googletest/include)
+INCLUDE_DIRECTORIES(${CMAKE_SOURCE_DIR}/thirdparty/gtest/googlemock/include)
 
 MESSAGE( STATUS "GTEST_SOURCE_DIR:         " ${gtest_SOURCE_DIR} )
 
