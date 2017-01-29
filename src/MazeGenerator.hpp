@@ -11,9 +11,14 @@ typedef std::vector<std::vector<MazeNode>> Maze;
 
 class MazeGenerator {
 public:
-    static Maze create(const int W, const int H);
+    template <int W, int H>
+    static Maze init();
+
+    template <int W, int H>
+    static void build(Maze& maze);
 };
 
 }
+#include "MazeGenerator.inl.hpp"
 
 #endif
